@@ -1,13 +1,15 @@
+Summary:	Play, create and solve sudoku grids
 Name:		ksudoku
 Version:	4.10.4
 Release:	1
 Epoch:		1
-Summary:	Play, create and solve sudoku grids
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
-URL:		http://www.kde.org/applications/games/ksudoku/
+Url:		http://www.kde.org/applications/games/ksudoku/
 Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	libkdegames-devel
+BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(glu)
 
 %description
 The word Sudoku means "single number in an alloted place" in Japanese. These
@@ -52,6 +54,7 @@ More information at http://en.wikipedia.org/wiki/Sudoku
 %changelog
 * Wed Jun 05 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.4-1
 - New version 4.10.4
+- Update BuildRequires
 
 * Tue May 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.3-1
 - New version 4.10.3
