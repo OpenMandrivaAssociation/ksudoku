@@ -1,6 +1,6 @@
 Summary:	Play, create and solve sudoku grids
 Name:		ksudoku
-Version:	4.11.2
+Version:	4.11.3
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -52,6 +52,9 @@ More information at http://en.wikipedia.org/wiki/Sudoku
 %makeinstall_std -C build
 
 %changelog
+* Wed Nov 06 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-1
+- New version 4.11.3
+
 * Wed Oct 02 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.2-1
 - New version 4.11.2
 
