@@ -1,7 +1,7 @@
 Summary:	Play, create and solve sudoku grids
 Name:		ksudoku
-Version:	15.04.3
-Release:	2
+Version:	15.08.0
+Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
@@ -34,12 +34,13 @@ you).
 More information at http://en.wikipedia.org/wiki/Sudoku
 
 %files
-%{_bindir}/ksudoku                                                                                     
-%{_datadir}/applications/kde4/ksudoku.desktop                                                          
-%{_datadir}/apps/ksudoku                                                                               
-%{_datadir}/config/ksudokurc                                                                           
-%{_iconsdir}/hicolor/*/apps/ksudoku.png                                                                
-%doc %{_docdir}/*/*/ksudoku   
+%{_bindir}/ksudoku
+%{_datadir}/applications/kde4/ksudoku.desktop
+%{_datadir}/apps/ksudoku
+%{_datadir}/config/ksudokurc
+%{_iconsdir}/hicolor/*/apps/ksudoku.png
+%{_datadir}/appdata/*.xml
+%doc %{_docdir}/*/*/ksudoku
 
 #------------------------------------------------------------------------------
 
@@ -47,7 +48,8 @@ More information at http://en.wikipedia.org/wiki/Sudoku
 %setup -q
 
 %build
-%cmake_kde4
+%cmake_kde4 \
+	-DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
 %make
 
 %install
