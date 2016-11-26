@@ -35,11 +35,11 @@ More information at http://en.wikipedia.org/wiki/Sudoku
 
 %files
 %{_bindir}/ksudoku
-%{_datadir}/applications/kde4/ksudoku.desktop
+%{_datadir}/applications/kde4/*.desktop
 %{_datadir}/apps/ksudoku
 %{_datadir}/config/ksudokurc
 %{_iconsdir}/hicolor/*/apps/ksudoku.png
-%{_datadir}/appdata/*.xml
+%{_datadir}/metainfo/*.xml
 %doc %{_docdir}/*/*/ksudoku
 
 #------------------------------------------------------------------------------
