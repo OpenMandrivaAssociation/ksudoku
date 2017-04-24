@@ -1,6 +1,6 @@
 Summary:	Play, create and solve sudoku grids
 Name:		ksudoku
-Version:	16.12.2
+Version:	17.04.0
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
