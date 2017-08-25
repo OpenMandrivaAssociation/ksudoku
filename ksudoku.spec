@@ -1,18 +1,16 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Play, create and solve sudoku grids
 Name:		ksudoku
-Version:	17.04.2
+Version:	17.08.0
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 Url:		http://www.kde.org/applications/games/ksudoku/
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	libkdegames-devel
-BuildRequires:	kdelibs-devel
-BuildRequires:	cmake(KDEGames)
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
+BuildRequires:	cmake(KF5Config) cmake(KF5ConfigWidgets) cmake(KF5CoreAddons) cmake(KF5Crash) cmake(KF5GuiAddons) cmake(KF5I18n) cmake(KF5JobWidgets) cmake(KF5KDEGames) cmake(KF5KIO) cmake(KF5WidgetsAddons) cmake(KF5XmlGui) cmake(Qt5Core) cmake(Qt5Gui) cmake(Qt5OpenGL) cmake(Qt5PrintSupport) cmake(Qt5Svg) cmake(Qt5Widgets) cmake(Qt5Xml)
 
 %description
 The word Sudoku means "single number in an alloted place" in Japanese. These
@@ -34,14 +32,14 @@ you).
 
 More information at http://en.wikipedia.org/wiki/Sudoku
 
-%files
+%files -f %{name}.lang
 %{_bindir}/ksudoku
-%{_datadir}/applications/kde4/*.desktop
-%{_datadir}/apps/ksudoku
-%{_datadir}/config/ksudokurc
+%{_datadir}/applications/*.desktop
+%{_datadir}/ksudoku
+%{_sysconfdir}/xdg/ksudokurc
 %{_iconsdir}/hicolor/*/apps/ksudoku.png
 %{_datadir}/metainfo/*.xml
-%doc %{_docdir}/*/*/ksudoku
+%{_datadir}/kxmlgui5/ksudoku
 
 #------------------------------------------------------------------------------
 
@@ -49,10 +47,9 @@ More information at http://en.wikipedia.org/wiki/Sudoku
 %setup -q
 
 %build
-%cmake_kde4 \
-	-DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
-%make
+%cmake_kde5
+%ninja
 
 %install
-%makeinstall_std -C build
-
+%ninja_install -C build
+%find_lang %{name} --all-name --with-html
