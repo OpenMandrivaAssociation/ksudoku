@@ -12,6 +12,7 @@ BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	cmake(KF5Config) cmake(KF5ConfigWidgets) cmake(KF5CoreAddons) cmake(KF5Crash) cmake(KF5GuiAddons) cmake(KF5I18n) cmake(KF5JobWidgets) cmake(KF5KDEGames) cmake(KF5KIO) cmake(KF5WidgetsAddons) cmake(KF5XmlGui) cmake(Qt5Core) cmake(Qt5Gui) cmake(Qt5OpenGL) cmake(Qt5PrintSupport) cmake(Qt5Svg) cmake(Qt5Widgets) cmake(Qt5Xml)
 BuildRequires:	cmake(Qt5Test)
+BuildRequires:	cmake(KF5DocTools)
 
 %description
 The word Sudoku means "single number in an alloted place" in Japanese. These
