@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Play, create and solve sudoku grids
 Name:		ksudoku
-Version:	22.04.3
+Version:	22.07.90
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -64,7 +64,6 @@ More information at http://en.wikipedia.org/wiki/Sudoku
 %{_sysconfdir}/xdg/ksudokurc
 %{_iconsdir}/hicolor/*/apps/ksudoku.png
 %{_datadir}/metainfo/*.xml
-%{_datadir}/kxmlgui5/ksudoku
 
 #------------------------------------------------------------------------------
 
