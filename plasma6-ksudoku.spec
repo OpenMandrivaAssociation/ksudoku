@@ -1,12 +1,19 @@
+%define git 20240218
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Play, create and solve sudoku grids
 Name:		plasma6-ksudoku
-Version:	24.01.95
-Release:	1
+Version:	24.01.96
+Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 Url:		http://www.kde.org/applications/games/ksudoku/
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/games/ksudoku/-/archive/%{gitbranch}/ksudoku-%{gitbranchd}.tar.bz2#/ksudoku-%{git}.tar.bz2
+%else
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/ksudoku-%{version}.tar.xz
+%endif
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	cmake(Qt6Test)
@@ -68,7 +75,7 @@ More information at http://en.wikipedia.org/wiki/Sudoku
 #------------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n ksudoku-%{?git:master}%{!?git:%{version}}
+%autosetup -p1 -n ksudoku-%{?git:%{gitbranchd}}%{!?git:%{version}}
 
 %build
 %cmake \
