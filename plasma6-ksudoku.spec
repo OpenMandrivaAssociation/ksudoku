@@ -8,7 +8,7 @@ Version:	24.08.2
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
-Url:		http://www.kde.org/applications/games/ksudoku/
+Url:		https://www.kde.org/applications/games/ksudoku/
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/games/ksudoku/-/archive/%{gitbranch}/ksudoku-%{gitbranchd}.tar.bz2#/ksudoku-%{git}.tar.bz2
 %else
