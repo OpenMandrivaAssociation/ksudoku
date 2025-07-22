@@ -4,7 +4,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Play, create and solve sudoku grids
 Name:		ksudoku
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
@@ -44,6 +44,11 @@ BuildRequires:	cmake(KF6XmlGui)
 BuildRequires:	cmake(KDEGames6)
 BuildRequires:	cmake(OpenGL)
 
+%rename plasma6-ksudoku
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+
 %description
 The word Sudoku means "single number in an alloted place" in Japanese. These
 are the basic rules. Every sudoku Sudoku is a square of 81 cells divided into
@@ -71,18 +76,3 @@ More information at http://en.wikipedia.org/wiki/Sudoku
 %{_sysconfdir}/xdg/ksudokurc
 %{_iconsdir}/hicolor/*/apps/ksudoku.png
 %{_datadir}/metainfo/*.xml
-
-#------------------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n ksudoku-%{?git:%{gitbranchd}}%{!?git:%{version}}
-
-%build
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-%ninja
-
-%install
-%ninja_install -C build
-%find_lang %{name} --all-name --with-html
